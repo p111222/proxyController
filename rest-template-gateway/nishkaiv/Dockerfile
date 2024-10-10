@@ -22,6 +22,9 @@ FROM openjdk:17-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install curl
+RUN apt-get update && apt-get install -y curl
+
 # Copy the packaged jar from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
